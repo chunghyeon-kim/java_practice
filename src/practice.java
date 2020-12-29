@@ -15,7 +15,6 @@ public class practice {
 		
 		System.out.println(String.join("", strVal,"+", strVal2, "=") +sum);
 		System.out.println(strVal+"+"+strVal2+"="+sum2);
-		System.out.println(strVal+"+"+strVal2+"="+sum2);
 	}
 
 }
