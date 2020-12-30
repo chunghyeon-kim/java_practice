@@ -22,6 +22,7 @@ public class practice {
 		
 		System.out.println("capacity=" + sb.capacity());
 		System.out.println("length=" + sb.length());
+		System.out.println("length=" + sb.length());
 		
 		
 	}
