@@ -1,41 +1,49 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class practice {
+	
+
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Date today = new Date();
+		ArrayList list1 = new ArrayList(10);  //크기 10인 ArrayList 생성
+		list1.add(new Integer(5));
+		list1.add(new Integer(4));
+		list1.add(new Integer(2));
+		list1.add(new Integer(0));
+		list1.add(new Integer(1));
+		list1.add(new Integer(3));
 		
-		SimpleDateFormat sdf1, sdf2, sdf3, sdf4;
-		SimpleDateFormat sdf5, sdf6, sdf7, sdf8, sdf9;
+		ArrayList list2 = new ArrayList(list1.subList(1, 4));
 		
-		sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-		sdf2 = new SimpleDateFormat("''yy년-MMM dd일 E요일");
-		sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-		sdf4 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+		Collections.sort(list1);
+		Collections.sort(list2);
 		
-		sdf5 = new SimpleDateFormat("오늘은 올 해의 D번째 날입니다.");
-		sdf6 = new SimpleDateFormat("오늘은 이 달의 d번째 날입니다.");
-		sdf7 = new SimpleDateFormat("오늘은 올 해의 w번째 주입니다.");
-		sdf8 = new SimpleDateFormat("오늘은 올 해의 W번째 주입니다.");
-		sdf9 = new SimpleDateFormat("오늘은 올 해의 F번째 E요일입니다.");
+		System.out.println("list1.containsAll(list2):" + list1.containsAll(list2));
 		
-		System.out.println(sdf1.format(today));
-		System.out.println(sdf2.format(today));
-		System.out.println(sdf3.format(today));
-		System.out.println(sdf4.format(today));
-		System.out.println();
-		System.out.println(sdf5.format(today));
-		System.out.println(sdf6.format(today));
-		System.out.println(sdf7.format(today));
-		System.out.println(sdf8.format(today));
-		System.out.println(sdf9.format(today));
+		list2.add("B");
+		list2.add("C");
+		list2.add(3, "A");
 		
+		list2.set(3, "AA");
+		
+		
+		//list2에서 list1에 포함된 객체들을 삭제한다
+		for(int i= list2.size()-1; i>=0; i--) {
+			if(list1.contains(list2.get(i)))
+				list2.remove(i);  //인덱스가 i인 곳에 저장된 요소를 삭제
+		}
+		
+		System.out.println("list1.retainAll(list2):" + list1.retainAll(list2));
+		                                       //list1에서 list2와 겹치는 부분만 남기고 나머지 삭제
 		
 		
 	}
+
+
 
 }
 
