@@ -1,28 +1,38 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class practice {
 	
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		StringBuffer sb = new StringBuffer("01");  //01로 시작하는 18칸짜리 StringBuffer생성
-		StringBuffer sb2 = sb.append(23);  //0123
-		sb.append('4').append(56);
-		StringBuffer sb3 = sb.append(78);
-		sb3.append(9.0);
+		Date today = new Date();
 		
-		System.out.println("sb =" +sb);
-		System.out.println("sb2 =" +sb2);
-		System.out.println("sb2 =" +sb3);   //0123456789.0
+		SimpleDateFormat sdf1, sdf2, sdf3, sdf4;
+		SimpleDateFormat sdf5, sdf6, sdf7, sdf8, sdf9;
 		
-		System.out.println("sb =" + sb.deleteCharAt(10));
-		System.out.println("sb =" + sb.delete(3, 6));
-		System.out.println("sb =" + sb.insert(3, "abc"));
-		System.out.println("sb =" + sb.replace(6, sb.length(), "END"));
+		sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+		sdf2 = new SimpleDateFormat("''yy년-MMM dd일 E요일");
+		sdf3 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		sdf4 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
 		
-		System.out.println("capacity=" + sb.capacity());
-		System.out.println("length=" + sb.length());
-		System.out.println("length=" + sb.length());
+		sdf5 = new SimpleDateFormat("오늘은 올 해의 D번째 날입니다.");
+		sdf6 = new SimpleDateFormat("오늘은 이 달의 d번째 날입니다.");
+		sdf7 = new SimpleDateFormat("오늘은 올 해의 w번째 주입니다.");
+		sdf8 = new SimpleDateFormat("오늘은 올 해의 W번째 주입니다.");
+		sdf9 = new SimpleDateFormat("오늘은 올 해의 F번째 E요일입니다.");
+		
+		System.out.println(sdf1.format(today));
+		System.out.println(sdf2.format(today));
+		System.out.println(sdf3.format(today));
+		System.out.println(sdf4.format(today));
+		System.out.println();
+		System.out.println(sdf5.format(today));
+		System.out.println(sdf6.format(today));
+		System.out.println(sdf7.format(today));
+		System.out.println(sdf8.format(today));
+		System.out.println(sdf9.format(today));
+		
 		
 		
 	}
