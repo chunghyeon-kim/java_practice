@@ -1,46 +1,29 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class practice {
-	
 
-	
+
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		ArrayList list1 = new ArrayList(10);  //크기 10인 ArrayList 생성
-		list1.add(new Integer(5));
-		list1.add(new Integer(4));
-		list1.add(new Integer(2));
-		list1.add(new Integer(0));
-		list1.add(new Integer(1));
-		list1.add(new Integer(3));
-		
-		ArrayList list2 = new ArrayList(list1.subList(1, 4));
-		
-		Collections.sort(list1);
-		Collections.sort(list2);
-		
-		System.out.println("list1.containsAll(list2):" + list1.containsAll(list2));
-		
-		list2.add("B");
-		list2.add("C");
-		list2.add(3, "A");
-		
-		list2.set(3, "AA");
-		
-		
-		//list2에서 list1에 포함된 객체들을 삭제한다
-		for(int i= list2.size()-1; i>=0; i--) {
-			if(list1.contains(list2.get(i)))
-				list2.remove(i);  //인덱스가 i인 곳에 저장된 요소를 삭제
+
+		Object[] objArr = {"1", new Integer(1), "2", "2", "3","3","4","4","4"};
+		Set set = new HashSet();
+
+		for(int i=0; i < objArr.length; i++) {
+			System.out.println(set.add(objArr[i]));
 		}
+
+		System.out.println(set);
+
+		Iterator it = set.iterator();
 		
-		System.out.println("list1.retainAll(list2):" + list1.retainAll(list2));
-		                                       //list1에서 list2와 겹치는 부분만 남기고 나머지 삭제
-		
-		
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+
 	}
 
 
