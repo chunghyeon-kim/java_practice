@@ -1,6 +1,4 @@
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class practice {
 
@@ -9,24 +7,36 @@ public class practice {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Object[] objArr = {"1", new Integer(1), "2", "2", "3","3","4","4","4"};
-		Set set = new HashSet();
-
-		for(int i=0; i < objArr.length; i++) {
-			System.out.println(set.add(objArr[i]));
-		}
-
-		System.out.println(set);
-
-		Iterator it = set.iterator();
+		Stack st = new Stack();
+		String expression = args[0];
 		
-		while(it.hasNext()) {
-			System.out.println(it.next());
+		System.out.println("expression:" + expression);
+		
+		try{
+			for(int i=0; i<expression.length(); i++) {
+				char ch = expression.charAt(i);
+				
+				if(ch == '(') {
+					st.push(ch + "");
+				} else if (ch==')') {
+					st.pop();
+				}
+			} //end of i loop
+			
+			if(st.isEmpty()) {
+				System.out.println("괄호가 일치합니다.");
+			} else {
+				System.out.println("괄호가 일치하지 않습니다.");
+			}
+		} catch(EmptyStackException e) {
+			System.out.println("괄호가 일치하지 않습니다.");
 		}
 
+		
+		
+		
+		
 	}
-
-
 
 }
 
