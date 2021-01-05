@@ -3,26 +3,11 @@ import java.util.*;
 public class practice {
 	public static void main(String[] args) {
 
+	}
+}
 
 
-<<<<<<< HEAD
-		int[][] arr = {
-				{1,2,3,4,5},
-				{1,2,1,1,1},
-				{1,1,3,4,5}
-		};
-        
-		int[][] arr2 = arr.clone();
-		
-		System.out.println(Arrays.deepToString(arr2));
-		
-    }   //end of main
 
-}  //end of class
-
-=======
-	}  //end of main
-} //end of class
 
 class Customer {
 	public void order(String menuName, Menu menu, Barista barista) {
@@ -81,4 +66,3 @@ class Coffee {
 		this.price = menuItem.cost();
 	}
 }
->>>>>>> ce0f59cbf9a52dbc9845ca48359eb7b0404f1d35
