@@ -1,28 +1,57 @@
 import java.io.File;
 import java.util.*;
 
+class Product {
+	int price;
+	int bonusPoint;
+
+	Product(int price){
+		this.price = price;
+		this.bonusPoint = (int)(price/10.0);
+	}
+}
+
+class Tv extends Product{
+	Tv(){
+		super(100);
+	}
+	public String toString(){return "Tv";}
+}
+
+class Computer extends Product{
+	Computer(){
+		super(200);
+	}
+	public String toString(){return "Computer";}
+}
+
+class Buyer{
+	int money = 1000;
+	int bonusPoint = 0;
+
+	void buy(Product p){
+		if(p.price>money){
+			System.out.println("잔액이 부족하여 물건을 살 수 없습니다");
+			return;
+		}
+		money -=p.price;
+		bonusPoint +=p.bonusPoint;
+		System.out.println(p + "을/를 구입하셨습니다");
+	}
+}
+
 public class practice {
 	public static void main(String[] args) {
-		ArrayList list = new ArrayList();
-		list.add("1");
-		list.add("2");
-		list.add("3");
-		list.add("4");
-		list.add("5");
+		Buyer b = new Buyer();
+		b.buy(new Tv());
+		b.buy(new Computer());
 
-		Iterator it = list.iterator();
-
-		while (it.hasNext()) {
-			Object obj = it.next();
-			System.out.println(obj);
-
-		}
+		System.out.println("현재 남은 돈은 " + b.money + "만원입니다.");
+		System.out.println("현재 보너스점수는 " + b.bonusPoint + "점입니다.");
 
 	} //end of main
 
-	static int add(int a, int b){
-		return a+b;
-	}
+
 
 
 }  //end of class
