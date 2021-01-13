@@ -1,60 +1,36 @@
+import javax.swing.*;
 import java.io.File;
 import java.util.*;
 
-class Fruit {public String toString() {return "Fruit";}}
-class Apple extends Fruit {public String toString() {return "Apple";}}
-class Grape extends Fruit {public String toString() {return "Grape";}}
 
-class Juice {
-	String name;
-
-	Juice(String name) {this.name = name + "Juice";}
-	public String toString() {return name;}
-}
-
-class Juicer {
-	static Juice makeJuice(FruitBox<? extends Fruit> box) {
-		String tmp = "";
-
-		for(Fruit f : box.getList())
-			tmp += f + " ";
-		return new Juice(tmp);
-	}
-}
 
 public class practice {
-	public static void main(String[] args) {
-		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
-		FruitBox<Apple> appleBox = new FruitBox<Apple>();
+	public static void main(String[] args) throws Exception {
+		ThreadEx9_1 th1 = new ThreadEx9_1();
+		th1.start();
 
-		fruitBox.add(new Apple());
-		fruitBox.add(new Grape());
-		appleBox.add(new Apple());
-		appleBox.add(new Apple());
-
-		System.out.println(Juicer.makeJuice(fruitBox));
-		System.out.println(Juicer.makeJuice(appleBox));
-
+		String input = JOptionPane.showInputDialog("아무 값이나 입력하세요.");
+		System.out.println("입력하신 값은 " + input +  "입니다.");
+		th1.interrupt();
+		System.out.println("isInterrupted():" + th1.isInterrupted());
 
 
 	} //end of main
 
 
-
-
 }  //end of class
 
 
-class FruitBox<T extends Fruit> extends Box<T> {}
+class ThreadEx9_1 extends Thread {
+	public void run() {
+		int i=10;
 
-class Box<T> {
-	ArrayList<T> list = new ArrayList<T>();
-	void add(T item) {list.add(item);}
-	T get(int i) {return list.get(i);}
-	ArrayList<T> getList() {return list; }
-	int size() {return list.size();}
-	public String toString() {return list.toString();}
+		while(i!=0 && !isInterrupted()) {
+			System.out.println(i--);
+			for(long x=0; x<2500000000L; x++);
+		}
+		System.out.println("카운트가 종료되었습니다.");
+	}
 }
-
 
 
