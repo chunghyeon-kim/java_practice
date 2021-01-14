@@ -5,32 +5,19 @@ import java.util.*;
 
 
 public class practice {
-	public static void main(String[] args) throws Exception {
-		ThreadEx9_1 th1 = new ThreadEx9_1();
-		th1.start();
+public static void main(String[] args) throws Exception {
+	Map<String, String> map = new HashMap<>();
+	map.put("1","2");
+	map.put("2","3");
+	map.put("3","4");
+	map.put("4","5");
 
-		String input = JOptionPane.showInputDialog("아무 값이나 입력하세요.");
-		System.out.println("입력하신 값은 " + input +  "입니다.");
-		th1.interrupt();
-		System.out.println("isInterrupted():" + th1.isInterrupted());
-
+	map.forEach((k,v) -> System.out.print("{"+k+","+v+"},"));
 
 	} //end of main
 
 
 }  //end of class
 
-
-class ThreadEx9_1 extends Thread {
-	public void run() {
-		int i=10;
-
-		while(i!=0 && !isInterrupted()) {
-			System.out.println(i--);
-			for(long x=0; x<2500000000L; x++);
-		}
-		System.out.println("카운트가 종료되었습니다.");
-	}
-}
 
 
