@@ -1,18 +1,33 @@
 import javax.swing.*;
+import java.io.*;
 import java.io.File;
 import java.util.*;
-
+import java.util.function.Function;
 
 
 public class practice {
-public static void main(String[] args) throws Exception {
-	Map<String, String> map = new HashMap<>();
-	map.put("1","2");
-	map.put("2","3");
-	map.put("3","4");
-	map.put("4","5");
+public static void main(String[] args)  {
+		byte[] inSrc = {0,1,2,3,4,5,6,7,8,9};
+		byte[] outSrc = null;
+		byte[] temp = new byte[10];
 
-	map.forEach((k,v) -> System.out.print("{"+k+","+v+"},"));
+	ByteArrayInputStream input = null;
+	ByteArrayOutputStream output = null;
+
+	input = new ByteArrayInputStream(inSrc);
+	output = new ByteArrayOutputStream();
+
+	input.read(temp, 0, temp.length);
+	output.write(temp, 5, 5);
+
+	outSrc = output.toByteArray();
+
+	System.out.println("Input source  :" + Arrays.toString(inSrc));
+	System.out.println("temp          :" + Arrays.toString(temp));
+	System.out.println("Output Source :" + Arrays.toString(outSrc));
+
+
+
 
 	} //end of main
 
