@@ -24,7 +24,6 @@ public static void main(String[] args)  {
 
 	System.out.println("Input source  :" + Arrays.toString(inSrc));
 	System.out.println("temp          :" + Arrays.toString(temp));
-	System.out.println("Output Source :" + Arrays.toString(outSrc));
 
 
 
