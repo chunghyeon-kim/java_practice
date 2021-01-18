@@ -7,24 +7,28 @@ import java.util.function.Function;
 
 public class practice {
 public static void main(String[] args)  {
-		byte[] inSrc = {0,1,2,3,4,5,6,7,8,9};
-		byte[] outSrc = null;
 
-		ByteArrayInputStream input = null;
-		ByteArrayOutputStream output = null;
+	ArrayList<Integer> list = new ArrayList<>();
+	for (int i = 0; i < 10; i++) {
+		list.add(i);
+	}
 
-		input = new ByteArrayInputStream(inSrc);
-		output = new ByteArrayOutputStream();
+	list.forEach(i -> System.out.print(i + ","));
+	System.out.println();
 
-		int data = 0;
+	list.removeIf(x -> x%2==0 || x%3==0);
+	System.out.println(list);
 
-		while((data = input.read())!=-1)
-			output.write(data);
+	list.replaceAll(i -> i*10);
+	System.out.println(list);
 
-		outSrc = output.toByteArray();
+	Map<String, String> map = new HashMap<>();
+	map.put("1","1");
+	map.put("2","2");
+	map.put("3","3");
+	map.put("4","4");
 
-	System.out.println("Input Source : " + Arrays.toString(inSrc));
-	System.out.println("Output Source : " + Arrays.toString(outSrc));
+	map.forEach((k,v) -> System.out.print("{"+k+","+v+"}"+","));
 
 	} //end of main
 
