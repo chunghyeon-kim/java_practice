@@ -3,32 +3,19 @@ import java.io.*;
 import java.io.File;
 import java.util.*;
 import java.util.function.Function;
-
+import java.util.function.Predicate;
+import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
 
-	ArrayList<Integer> list = new ArrayList<>();
-	for (int i = 0; i < 10; i++) {
-		list.add(i);
-	}
+		List<Integer> list = Arrays.asList(1,2,3,4,5);
+		Stream<Integer> stream = list.stream();
+		stream.forEach(System.out::print);
 
-	list.forEach(i -> System.out.print(i + ","));
-	System.out.println();
-
-	list.removeIf(x -> x%2==0 || x%3==0);
-	System.out.println(list);
-
-	list.replaceAll(i -> i*10);
-	System.out.println(list);
-
-	Map<String, String> map = new HashMap<>();
-	map.put("1","1");
-	map.put("2","2");
-	map.put("3","3");
-	map.put("4","4");
-
-	map.forEach((k,v) -> System.out.print("{"+k+","+v+"}"+","));
+		int[] intArr = {1,2,3,4,5};
+		IntStream str1 = Arrays.stream(intArr);
+		str1.forEach(System.out::print);
 
 	} //end of main
 
