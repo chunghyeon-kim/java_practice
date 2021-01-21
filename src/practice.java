@@ -9,13 +9,19 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
 
-		List<Integer> list = Arrays.asList(1,2,3,4,5);
-		Stream<Integer> stream = list.stream();
-		stream.forEach(System.out::print);
+   	ArrayList list = new ArrayList();
+   	list.add("1");
+   	list.add("2");
+   	list.add("3");
+   	list.add("4");
+   	list.add("5");
 
-		int[] intArr = {1,2,3,4,5};
-		IntStream str1 = Arrays.stream(intArr);
-		str1.forEach(System.out::print);
+   	Iterator it = list.iterator();
+
+   	while(it.hasNext()){
+		System.out.println(it.next());
+	}
+
 
 	} //end of main
 
