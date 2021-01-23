@@ -9,17 +9,18 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
 
-   	ArrayList list = new ArrayList();
-   	list.add("1");
-   	list.add("2");
-   	list.add("3");
-   	list.add("4");
-   	list.add("5");
+	int[] arr = {1,2};
 
-   	Iterator it = list.iterator();
+  	if(arr[0]==1){
+  		if(arr[1]==1) {
+			System.out.println();
+		}
+  			else {
+				System.out.println("arr[1] is not 1");
+			}
 
-   	while(it.hasNext()){
-		System.out.println(it.next());
+	} else {
+
 	}
 
 
