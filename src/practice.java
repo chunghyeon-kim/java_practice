@@ -16,7 +16,7 @@ public static void main(String[] args)  {
 			System.out.println();
 		}
   			else {
-				System.out.println("arr[1] is not 1");
+
 			}
 
 	} else {
