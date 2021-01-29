@@ -9,20 +9,8 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
 
-	int[] arr = {1,2};
-
-  	if(arr[0]==1){
-  		if(arr[1]==1) {
-			System.out.println();
-		}
-  			else {
-
-			}
-
-	} else {
-
-	}
-
+	//DAO 이용해서 데이터베이스에 접근
+	//DTO 이용해서 전송
 
 	} //end of main
 
