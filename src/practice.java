@@ -9,18 +9,9 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
 
-	//DAO 이용해서 데이터베이스에 접근
-	//DTO 이용해서 전송
-
-	int[] arr = {1,2,3,4,5};
-
-
-
-	int sum = 0;
-	for (int i = 0; i < arr.length; i++) {
-		sum += arr[i];
-	}
-	System.out.println("sum=" + sum);
+	String str = "/abcdboard.jsp/";
+	String str2 = str.substring(0, str.length()-1);
+	System.out.println(str2);
 
 	} //end of main
 
