@@ -9,9 +9,12 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
 
-	String str = "/abcdboard.jsp/";
-	String str2 = str.substring(0, str.length()-1);
-	System.out.println(str2);
+	String str = " a b c ";
+	String str2 = str.replace(" ", "");
+
+	System.out.println(
+		str2
+	);
 
 	} //end of main
 
