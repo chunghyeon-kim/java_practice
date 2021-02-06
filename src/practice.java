@@ -22,7 +22,7 @@ public static void main(String[] args)  {
 		if(  !(('a'<=ch2 && ch2<='z') || ('A'<=ch2 && ch2<='Z') || ('0'<=ch2 && ch2<='9'))    )
 		{check2=false;}
 	} System.out.println("check2=" + check2);
-
+	System.out.println("kk");
 
 	} //end of main
 
