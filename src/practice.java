@@ -15,14 +15,6 @@ public static void main(String[] args)  {
 	{check=false;}
 	System.out.println(check);
 
-	String str = "abc@#$";
-	boolean check2 = true;
-	for(int i=0; i<str.length(); i++) {
-		char ch2 = str.charAt(i);
-		if(  !(('a'<=ch2 && ch2<='z') || ('A'<=ch2 && ch2<='Z') || ('0'<=ch2 && ch2<='9'))    )
-		{check2=false;}
-	} System.out.println("check2=" + check2);
-	System.out.println("kk");
 
 	} //end of main
 
