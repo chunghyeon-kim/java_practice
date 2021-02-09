@@ -8,13 +8,22 @@ import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
-	char ch = '@';
-	boolean check = true;
-	if(  !(('a'<=ch && ch<='z') || ('A'<=ch && ch<='Z') || ('0'<=ch && ch<='9'))    )
+	Scanner sc = new Scanner(System.in);
+	System.out.print("양의 정수 10개 입력: ");
+	int[] arr = new int[10];
 
-	{check=false;}
-	System.out.println(check);
+	for(int i=0; i<arr.length; i++) {
+		arr[i] = sc.nextInt();
+	}
 
+	System.out.print("3의 배수: ");
+	for(int i=0; i<arr.length; i++) {
+		if (arr[i] % 3 == 0) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+
+	sc.close();
 
 	} //end of main
 
