@@ -8,27 +8,28 @@ import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
-	Scanner sc = new Scanner(System.in);
-	System.out.print("양의 정수 10개 입력: ");
-	int[] arr = new int[10];
+		Person p1 = new Person(8011081111222L);
+		Person p2 = new Person(8011081111222L);
 
-	for(int i=0; i<arr.length; i++) {
-		arr[i] = sc.nextInt();
-	}
-
-	System.out.print("3의 배수: ");
-	for(int i=0; i<arr.length; i++) {
-		if (arr[i] % 3 == 0) {
-			System.out.print(arr[i] + " ");
-		}
-	}
-
-	sc.close();
-
-	} //end of main
+	System.out.println(p1.equals(p2));
+	System.out.println(p1==p2);
+} //end of main
 
 
 }  //end of class
 
+class Person {
+	long id;
 
+	public boolean equals(Object obj) {
+		if(obj instanceof Person)
+			return id==((Person)obj).id;
+		else
+			return false;
+	}
+
+	Person(long id) {
+		this.id = id;
+	}
+}
 
