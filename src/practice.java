@@ -8,28 +8,28 @@ import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
-		Person p1 = new Person(8011081111222L);
-		Person p2 = new Person(8011081111222L);
+	Singleton test1 = Singleton.getInstance();
+	Singleton test2 = Singleton.getInstance();
 
-	System.out.println(p1.equals(p2));
-	System.out.println(p1==p2);
+	System.out.println(test1==test2);
+
 } //end of main
 
 
 }  //end of class
 
-class Person {
-	long id;
+class Singleton{
+	private int value;
+	private Singleton(){}
+	private static Singleton instance = new Singleton();
+	public static Singleton getInstance() {
+		if(instance == null) {
+			instance = new Singleton();
 
-	public boolean equals(Object obj) {
-		if(obj instanceof Person)
-			return id==((Person)obj).id;
-		else
-			return false;
+
+		}
+		return instance;
 	}
 
-	Person(long id) {
-		this.id = id;
-	}
 }
 
