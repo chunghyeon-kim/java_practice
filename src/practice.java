@@ -8,28 +8,18 @@ import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
-	Singleton test1 = Singleton.getInstance();
-	Singleton test2 = Singleton.getInstance();
+	StringBuffer sb = new StringBuffer();
+	sb.append("abc");
+	sb.append("ddd");
 
-	System.out.println(test1==test2);
+    System.out.println(sb);
+
+
 
 } //end of main
 
 
 }  //end of class
 
-class Singleton{
-	private int value;
-	private Singleton(){}
-	private static Singleton instance = new Singleton();
-	public static Singleton getInstance() {
-		if(instance == null) {
-			instance = new Singleton();
 
-
-		}
-		return instance;
-	}
-
-}
 
