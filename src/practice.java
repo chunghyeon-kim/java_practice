@@ -8,15 +8,18 @@ import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
-	StringBuffer sb = new StringBuffer();
-	sb.append("abc");
-	sb.append("ddd");
+    System.out.println("realend 45, 10= " + realEnd(45,10));
+    System.out.println("realend 50, 10= " + realEnd(50,10));
+    System.out.println("realend 98, 10= " + realEnd(98,10));
 
-    System.out.println(sb);
 
 
 
 } //end of main
+
+    static int realEnd(int total, int amount) {
+        return (int)(Math.ceil((total * 1.0) / amount) );
+    }
 
 
 }  //end of class
