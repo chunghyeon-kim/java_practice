@@ -9,8 +9,7 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
     System.out.println("realend 45, 10= " + realEnd(45,10));
-    System.out.println("realend 50, 10= " + realEnd(50,10));
-    System.out.println("realend 98, 10= " + realEnd(98,10));
+
 
 
 
