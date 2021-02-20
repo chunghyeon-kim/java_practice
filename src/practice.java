@@ -8,17 +8,15 @@ import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
-    System.out.println("realend 45, 10= " + realEnd(45,10));
+    int[] arr1 = {1,3,5,7,9};
+    int[] arr2 = {2,4,6,8,10};
 
+    System.out.println(Arrays.equals(arr1,arr2));
 
 
 
 
 } //end of main
-
-    static int realEnd(int total, int amount) {
-        return (int)(Math.ceil((total * 1.0) / amount) );
-    }
 
 
 }  //end of class
