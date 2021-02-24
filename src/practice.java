@@ -13,7 +13,6 @@ public static void main(String[] args)  {
     System.out.println(pageCalculation(11));
     System.out.println(pageCalculation(18));
     System.out.println(pageCalculation(25));
-    System.out.println(pageCalculation(44));
 
 
 
