@@ -10,9 +10,7 @@ public class practice {
 public static void main(String[] args)  {
     System.out.println(pageCalculation(1));
     System.out.println(pageCalculation(8));
-    System.out.println(pageCalculation(11));
-    System.out.println(pageCalculation(18));
-    System.out.println(pageCalculation(25));
+
 
 
 
