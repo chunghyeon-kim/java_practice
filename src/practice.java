@@ -42,6 +42,9 @@ public static void main(String[] args)  {
     for(Direction d : dArr)
         System.out.printf("%s=%d%n", d.name(), d.ordinal());
 
+    for(Direction d : dArr)
+        System.out.printf("%s=%d%n", d.name(), d.ordinal());
+
 
 
 
