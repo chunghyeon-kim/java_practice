@@ -6,44 +6,21 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.*;
 
-enum Direction { EAST, SOUTH, WEST, NORTH }
 
 public class practice {
 public static void main(String[] args)  {
-    Direction d1 = Direction.EAST;
-    Direction d2 = Direction.valueOf("WEST");
-    Direction d3 = Enum.valueOf(Direction.class, "EAST");
+    long startTime = System.currentTimeMillis();
 
-    System.out.println("d1="+d1);
-    System.out.println("d2="+d2);
-    System.out.println("d3="+d3);
+    for(int i=0; i<300; i++)
+        System.out.printf("%s", new String("-"));
 
-    System.out.println("d1==d2 ? "+ (d1==d2));
-    System.out.println("d1==d3 ? "+ (d1==d3));
-    System.out.println("d1.equals(d3) ? " + d1.equals(d3));
-    System.out.println("d1.compareTo(d3) ?"+ (d1.compareTo(d3)));
-    System.out.println("d1.compareTo(d2) ?"+ (d1.compareTo(d2)));
+        System.out.print("소요시간1:" + (System.currentTimeMillis() - startTime));
 
-    switch(d1) {
-        case EAST:
-            System.out.println("The direction is EAST."); break;
-        case SOUTH:
-            System.out.println("The direction is SOUTH."); break;
-        case NORTH:
-            System.out.println("The direction is NORTH."); break;
-        case WEST:
-            System.out.println("The direction is WEST."); break;
-        default:
-            System.out.println("Invalid direction."); break;
-    }
+        for(int i=0; i<300; i++)
+            System.out.printf("%s", new String("|"));
 
-    Direction[] dArr = Direction.values();
+        System.out.println("소요시간2:" + (System.currentTimeMillis() - startTime));
 
-    for(Direction d : dArr)
-        System.out.printf("%s=%d%n", d.name(), d.ordinal());
-
-    for(Direction d : dArr)
-        System.out.printf("%s=%d%n", d.name(), d.ordinal());
 
 
 
