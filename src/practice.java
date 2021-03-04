@@ -9,15 +9,12 @@ import java.util.stream.*;
 
 public class practice {
 public static void main(String[] args)  {
-    long startTime = System.currentTimeMillis();
 
-    for(int i=0; i<300; i++)
-        System.out.printf("%s", new String("-"));
+    List<Integer> list = Arrays.asList(3,1,5,4,2);
+    List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
 
-        System.out.print("소요시간1:" + (System.currentTimeMillis() - startTime));
-
-
-
+    System.out.println(list);
+    System.out.println(sortedList);
 
 
 
