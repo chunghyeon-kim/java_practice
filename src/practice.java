@@ -11,19 +11,20 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
 
-    Stream<String[]> strArrStrm = Stream.of(
-            new String[]{"abc", "def", "jkl"},
-            new String[]{"ABC", "GHI", "JKL"}
-    );
+//    int[] arr = null;
+      int[] arr = new int[0];
+    System.out.println("arr.length=" + arr.length);
 
-    Stream<String> strStrm = strArrStrm.flatMap(Arrays::stream);
+//    Optional<String> opt = null;  //OK. 하지만 바람직X
+    Optional<String> opt = Optional.empty();
+//    Optional<String> opt = Optional.of("abc");
 
-    strStrm.map(String::toLowerCase)
-            .distinct()
-            .sorted()
-            .forEach(System.out::println);
+    String str = "";
 
-
+    str = opt.orElse("EMPTY"); //Optional에 저장된 값이 null이면 ""반환
+//    str = opt.orElseGet( ()->new String());
+    str = opt.orElseGet(String::new);
+    System.out.println("str=" + str);
 
 
 } //end of main
