@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.io.*;
 import java.io.File;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -10,12 +11,17 @@ import java.util.stream.*;
 public class practice {
 public static void main(String[] args)  {
 
-    List<Integer> list = Arrays.asList(3,1,5,4,2);
-    List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
+    Stream<String[]> strArrStrm = Stream.of(
+            new String[]{"abc", "def", "jkl"},
+            new String[]{"ABC", "GHI", "JKL"}
+    );
 
-    System.out.println(list);
-    System.out.println(sortedList);
+    Stream<String> strStrm = strArrStrm.flatMap(Arrays::stream);
 
+    strStrm.map(String::toLowerCase)
+            .distinct()
+            .sorted()
+            .forEach(System.out::println);
 
 
 
