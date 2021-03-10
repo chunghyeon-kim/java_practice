@@ -7,24 +7,21 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.*;
 
+import static java.util.stream.Collectors.partitioningBy;
+
 
 public class practice {
 public static void main(String[] args)  {
 
-//    int[] arr = null;
-      int[] arr = new int[0];
-    System.out.println("arr.length=" + arr.length);
+Map<Boolean, Optional<Student>> topScoreBySex =
+        stuStream.collect(partitioningBy(Student::isMale, maxBy(comparingInt(Student::getScore))));
+    System.out.println("남학생 1등 :"+ topScoreBySex.get(true));
+    System.out.println("여학생 1등 :"+ topScoreBySex.get(false));
 
-//    Optional<String> opt = null;  //OK. 하지만 바람직X
-    Optional<String> opt = Optional.empty();
-//    Optional<String> opt = Optional.of("abc");
-
-    String str = "";
-
-    str = opt.orElse("EMPTY"); //Optional에 저장된 값이 null이면 ""반환
-//    str = opt.orElseGet( ()->new String());
-    str = opt.orElseGet(String::new);
-    System.out.println("str=" + str);
+Map<Boolean, Map<Boolean, List<Student>>> failedStuBySex =
+        stuStream.collect(partitioningBy(Student::isMale, partitioningBy(s->s.getScore() < 150)));
+List<Student> failedMaleStu = failedStuBySex.get(true).get(true);
+List<Student> failedFemaleStu = failedStuBySex.get(false).get(true);
 
 
 } //end of main
