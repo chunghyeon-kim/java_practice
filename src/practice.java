@@ -21,6 +21,7 @@ Map<Boolean, Optional<Student>> topScoreBySex =
 Map<Boolean, Map<Boolean, List<Student>>> failedStuBySex =
         stuStream.collect(partitioningBy(Student::isMale, partitioningBy(s->s.getScore() < 150)));
 List<Student> failedMaleStu = failedStuBySex.get(true).get(true);
+    System.out.println();
 List<Student> failedFemaleStu = failedStuBySex.get(false).get(true);
 
 
