@@ -13,16 +13,13 @@ import static java.util.stream.Collectors.partitioningBy;
 public class practice {
 public static void main(String[] args)  {
 
-Map<Boolean, Optional<Student>> topScoreBySex =
-        stuStream.collect(partitioningBy(Student::isMale, maxBy(comparingInt(Student::getScore))));
-    System.out.println("남학생 1등 :"+ topScoreBySex.get(true));
-    System.out.println("여학생 1등 :"+ topScoreBySex.get(false));
+Tv t = new Tv();
+t.color = "Black";
+t.power = true;
+t.channel = 10;
 
-Map<Boolean, Map<Boolean, List<Student>>> failedStuBySex =
-        stuStream.collect(partitioningBy(Student::isMale, partitioningBy(s->s.getScore() < 150)));
-List<Student> failedMaleStu = failedStuBySex.get(true).get(true);
-    System.out.println();
-List<Student> failedFemaleStu = failedStuBySex.get(false).get(true);
+    System.out.println(t);
+
 
 
 } //end of main
@@ -30,5 +27,13 @@ List<Student> failedFemaleStu = failedStuBySex.get(false).get(true);
 
 }  //end of class
 
+class Tv {
+    String color;
+    boolean power;
+    int channel;
 
+    public String toString() {
+        return "color: " + color + " power: " + power + " channel: " + channel;
+    }
+}
 
