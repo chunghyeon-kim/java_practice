@@ -13,18 +13,9 @@ import static java.util.stream.Collectors.partitioningBy;
 public class practice {
 public static void main(String[] args)  {
 
-Tv t1 = new Tv();
-t1.color = "Black";
-t1.power = true;
-t1.channel = 10;
-
-    Tv t2 = new Tv();
-    t2.color = "Black";
-    t2.power = false;
-    t2.channel = 6;
-
-    System.out.println(t1);
-    System.out.println(t2);
+Unit u = new Unit();
+    u.init();
+    System.out.println(u.dir);
 
 
 
@@ -33,13 +24,14 @@ t1.channel = 10;
 
 }  //end of class
 
-class Tv {
-    String color;
-    boolean power;
-    int channel;
+enum Direction {EAST, SOUTH, WEST, NORTH}
 
-    public String toString() {
-        return "color: " + color + " power: " + power + " channel: " + channel;
+class Unit {
+    int x, y;
+    Direction dir;
+
+    void init() {
+        dir = Direction.EAST;
     }
 }
 
