@@ -1,26 +1,29 @@
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class practice {
     public static void main(String[] args) {
-        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        Date time = new Date();
-        System.out.println("time: " + time);
+        IntStream intStream = IntStream.range(1, 5);
+        IntStream intStream2 = IntStream.rangeClosed(1, 5);
 
-        String time1 = format1.format(time);
-        String time2 = ("2021-05-09");
-        System.out.println(time1);
-        try {
-            Date today = format1.parse(time1);
-            Date expirDay = format1.parse(time2);
+        intStream.forEach(System.out::print);
+        System.out.println();
+        intStream2.forEach(System.out::print);
 
-            long diffInMillies = expirDay.getTime() - today.getTime();
-            long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-            System.out.println(String.format("today %s, expirDay %s Diff %s Days", today, expirDay, diff));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        List<Integer> list = Arrays.asList(1, 2, 3,4, 5);
+        Stream<Integer> intStream3 = list.stream();
+
+        intStream3.forEach(System.out::print);
+
+        System.out.println();
+
+        Stream<String> strStream = Stream.of("a", "b", "c");
+        strStream.forEach(System.out::print);
     } //end of main
 }  //end of class
 
