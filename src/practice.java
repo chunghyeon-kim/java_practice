@@ -1,37 +1,29 @@
-import javax.swing.*;
-import java.io.*;
-import java.io.File;
-import java.nio.file.Path;
-import java.util.*;
-import java.util.function.Function;
-import java.util.function.Predicate;
-import java.util.stream.*;
-
-import static java.util.stream.Collectors.partitioningBy;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class practice {
-public static void main(String[] args)  {
+    public static void main(String[] args) {
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        Date time = new Date();
+        System.out.println("time: " + time);
 
-Unit u = new Unit();
-    u.init();
-    System.out.println(u.dir);
+        String time1 = format1.format(time);
+        String time2 = ("2021-05-09");
+        System.out.println(time1);
+        try {
+            Date today = format1.parse(time1);
+            Date expirDay = format1.parse(time2);
 
-
-
-} //end of main
-
-
+            long diffInMillies = expirDay.getTime() - today.getTime();
+            long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+            System.out.println(String.format("today %s, expirDay %s Diff %s Days", today, expirDay, diff));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    } //end of main
 }  //end of class
 
-enum Direction {EAST, SOUTH, WEST, NORTH}
 
-class Unit {
-    int x, y;
-    Direction dir;
 
-    void init() {
-        dir = Direction.EAST;
-    }
-}
 
