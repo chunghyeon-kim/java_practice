@@ -8,13 +8,18 @@ import java.util.stream.Stream;
 
 public class practice {
     public static void main(String[] args) {
-        Stream<Integer> evenStream = Stream.iterate(0, n->n+2);
-        evenStream.limit(5).forEach(System.out::print);
+        IntStream intStream = IntStream.rangeClosed(1, 10); // 1~10
+        intStream.filter(i -> i%2 != 0 && i%3 != 0).forEach(System.out::print);
 
         System.out.println();
 
-        Stream<Double> randomStream = Stream.generate(Math::random);
-        randomStream.limit(10).forEach(System.out::print);
+        intStream = IntStream.rangeClosed(1, 10); // 1~10
+        intStream.filter(i -> i%2 != 0).filter(i -> i%3 != 0).forEach(System.out::print);
+
+        System.out.println();
+
+        intStream = IntStream.of(1,2,2,3,3,3,4,5,5,6,7,7,8,8,8);
+        intStream.distinct().forEach(System.out::print);
 
 
     } //end of main
