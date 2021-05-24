@@ -1,41 +1,51 @@
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class practice {
     public static void main(String[] args) {
-        Calendar date = Calendar.getInstance();
-        date.set(2019, 7, 31);  //2019년 8월 31일
+        Stream<Student> studentStream = Stream.of(
+                new Student("이자바", 3, 300),
+                new Student("김자바", 1, 200),
+                new Student("안자바", 2, 100),
+                new Student("박자바", 2, 150),
+                new Student("소자바", 1, 200),
+                new Student("나자바", 3, 290),
+                new Student("감자바", 3, 180)
+        );
 
-        System.out.println(toString(date));
-        System.out.println("= 1일 후 =");
-        date.add(Calendar.DATE, 1);
-        System.out.println(toString(date));
-
-        System.out.println("= 6달 전 =");
-        date.add(Calendar.MONTH, -6);
-        System.out.println(toString(date));
-
-        // add()와 달리 roll()은 다른 필드에 영향을 주지 않는다.
-        System.out.println("= 31일 후(roll) =");
-        date.roll(Calendar.DATE, 31);
-        System.out.println(toString(date));
-
-        System.out.println("= 31일 후(add) =");
-        date.add(Calendar.DATE, 31);
-        System.out.println(toString(date));
+        studentStream.sorted(Comparator.comparing(Student::getBan)  // 반별 정렬
+            .thenComparing(Comparator.naturalOrder()))              // 기본 정렬ㄲㄲ
+            .forEach(System.out::println);
 
     } //end of main
-
-    public static String toString(Calendar date) {
-        return date.get(Calendar.YEAR) + "년 " + (date.get(Calendar.MONTH) + "월 " + date.get(Calendar.DATE) + "일");
-    }
 }  //end of class
+
+class Student implements Comparable<Student> {
+    String name;
+    int ban;
+    int totalScore;
+    Student(String name, int ban, int totalScore) {
+        this.name = name;
+        this.ban = ban;
+        this.totalScore = totalScore;
+    }
+
+    public String toString() {
+        return String.format("[%s, %d, %d]", name, ban, totalScore);
+    }
+
+    String getName() {return name;}
+    int getBan() {return ban;}
+    int getTotalScore() {return totalScore;}
+
+    public int compareTo(Student s) {
+        return s.totalScore - this.totalScore;
+    }
+
+}
 
 
 
