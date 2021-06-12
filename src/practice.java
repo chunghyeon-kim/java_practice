@@ -1,20 +1,28 @@
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.Arrays;
 
 public class practice {
     public static void main(String[] args) {
-        int count = intStream.reduce(0, (a,b) -> a+1);
-        int sum = intStream.reduce(0, (a,b) -> a+b);
-        int max = intStream.reduce(Integer.MIN_VALUE, (a,b) -> a>b ? a:b);
-        int min = intStream.reduce(Integer.MAX_VALUE, (a,b) -> a<b ? a:b);
+        byte[] inSrc = {0,1,2,3,4,5,6,7,8,9};
+        byte[] outSrc = null;
 
-        OptionalInt max = intStream.reduce(Integer::max);
-        OptionalInt min = intStream.reduce(Integer::min);
+        ByteArrayInputStream input = null;
+        ByteArrayOutputStream output = null;
 
-        int maxValue = max.getAsInt();
+        input = new ByteArrayInputStream(inSrc);
+        output = new ByteArrayOutputStream();
+
+        int data = 0;
+
+        while((data = input.read()) != -1) {
+            output.write(data);
+        }
+
+        outSrc = output.toByteArray();
+
+        System.out.println("Input Source   :" + Arrays.toString(inSrc));
+        System.out.println("Output Source  :" + Arrays.toString(outSrc));
     } //end of main
 }  //end of class
 
