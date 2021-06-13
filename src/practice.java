@@ -1,28 +1,34 @@
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.util.Arrays;
+import java.util.EmptyStackException;
+import java.util.Stack;
 
 public class practice {
     public static void main(String[] args) {
-        byte[] inSrc = {0,1,2,3,4,5,6,7,8,9};
-        byte[] outSrc = null;
+        Stack st = new Stack();
+        String expression = "((3+5*8-2))))";
 
-        ByteArrayInputStream input = null;
-        ByteArrayOutputStream output = null;
+        System.out.println("expression:" + expression);
 
-        input = new ByteArrayInputStream(inSrc);
-        output = new ByteArrayOutputStream();
+        try {
+            for (int i = 0; i < expression.length(); i++) {
+                char ch = expression.charAt(i);
 
-        int data = 0;
+                if(ch == '(') {
+                    st.push(ch + "");
+                } else if (ch == ')') {
+                    st.pop();
+                }
+            }
 
-        while((data = input.read()) != -1) {
-            output.write(data);
+            if(st.isEmpty()) {
+                System.out.println("괄호가 일치합니다.");
+            } else {
+                System.out.println("괄호가 일치하지 않습니다.");
+            }
+        } catch (EmptyStackException e) {
+            System.out.println("괄호가 일치하지 않습니다.");
         }
 
-        outSrc = output.toByteArray();
 
-        System.out.println("Input Source   :" + Arrays.toString(inSrc));
-        System.out.println("Output Source  :" + Arrays.toString(outSrc));
     } //end of main
 }  //end of class
 
